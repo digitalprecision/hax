@@ -1,0 +1,53 @@
+Need to write api for parsing a config file
+
+	Format
+	
+		key = value (pair)
+		
+	Logic
+	
+		Need uri to file location
+		
+			Check to make sure file exists and is readable
+			
+		Open file
+		
+			Step thru line by line
+			
+				If line does not have an =, then skip it, better to check for target than non-target
+				
+				else
+				
+					Add value to array using key as index
+					
+			Return array
+			
+	Api
+	
+		Hobis_Api_Config_File_Parser
+		
+			public function setUri
+			
+			public function getValues
+			
+				We'll go ahead and store these in array so user has flexibility to get all or individually
+			
+			protected function openFile()
+			
+			protected function readFile()
+			
+	Calling code
+	
+		$parser = new Hobis_Api_Config_File_Parser;
+		
+		$parser->setFileUri('/path/to/file');
+		
+		$settings = $parser->getValues();
+		
+		OR
+		
+		$parser->getValue('test');
+		
+		var_dump($settings); 
+			
+		
